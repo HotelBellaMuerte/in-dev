@@ -4,9 +4,10 @@
 # Contributor: Jan "heftig" Steffens <jan.steffens@gmail.com>
 # Contributor: Daniel J Griffiths <ghost1227@archlinux.us>
 
-pkgname=dnox
+pkgname=inox-dev
+pk=dnox
 name=chromium
-pkgver=64.0.3253.3
+pkgver=64.0.3260.2
 pkgrel=1
 _launcher_ver=5
 pkgdesc="A web browser built for speed, simplicity, and security"
@@ -21,95 +22,96 @@ optdepends=('pepper-flash: support for Flash content'
             'kdialog: needed for file dialogs in KDE'
             'gnome-keyring: for storing passwords in GNOME keyring'
             'kwallet: for storing passwords in KWallet')
-install=chromium.install
+install=inox-dev.install
 source=(https://commondatastorage.googleapis.com/chromium-browser-official/$name-$pkgver.tar.xz
         chromium-launcher-$_launcher_ver.tar.gz::https://github.com/foutrelis/chromium-launcher/archive/v$_launcher_ver.tar.gz
-        bnox.desktop
-        breakpad-use-ucontext_t.patch
-        crc32c-string-view-check.patch
-        chromium-gn-bootstrap-r17.patch
-001.patch
-002.patch
-004.patch
-005.patch
-006.patch
-007.patch
-008.patch
-009.patch
-010.patch
-011.patch
-012.patch
-013.patch
-014.patch
-015.patch
-016.patch
-2kb.patch
-018.patch
-k1.patch
-019.patch
-020.patch
-021.patch
-022.patch
-023.patch
-024.patch
-025.patch
-026.patch
-027.patch
-029.patch
-030.patch
-031.patch
-032.patch
-034.patch
-035.patch
-360.patch
-037.patch
-038.patch
-12.patch
-16.patch
-20.patch
-9k.patch
-048.patch
-gna.patch
-gnb.patch
-3992.patch
-2992.patch
-2ka.patch
-product_logo_{16,22,24,32,48,64,128,256}.png
-2kc.patch
-2kd.patch
-2ke.patch
-2kf.patch
-2kg.patch
-2kh.patch
-2ki.patch
-na.patch
-nb.patch
-nc.patch
-nd.patch
-a.patch
-b.patch
-c.patch
-d.patch
-e.patch
-k.patch
-l.patch
-l2.patch
-l3.patch
-m.patch
-n.patch
-o.patch
-p.patch
-r21.patch
-bp.patch
-CP.patch
-888.patch
-narnia1.patch
+        https://raw.githubusercontent.com/bn0785ac/in-dev/master/dnox.desktop
+        https://raw.githubusercontent.com/bn0785ac/in-dev/master/breakpad-use-ucontext_t.patch
+        https://raw.githubusercontent.com/bn0785ac/in-dev/master/crc32c-string-view-check.patch
+        https://raw.githubusercontent.com/bn0785ac/in-dev/master/chromium-gn-bootstrap-r17.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/001.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/002.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/004.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/005.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/006.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/007.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/008.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/009.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/010.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/011.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/012.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/013.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/014.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/015.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/016.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/2kb.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/018.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/k1.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/019.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/020.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/021.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/022.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/023.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/024.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/025.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/026.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/027.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/029.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/030.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/031.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/032.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/034.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/035.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/360.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/037.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/038.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/12.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/16.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/20.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/9k.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/048.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/gna.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/gnb.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/3992.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/2992.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/2ka.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/product_logo_{16,22,24,32,48,64,128,256}.png
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/2kc.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/2kd.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/2ke.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/2kf.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/2kg.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/2kh.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/2ki.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/na.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/nb.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/nc.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/nd.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/a.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/b.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/c.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/d.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/e.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/k.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/l.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/l2.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/l3.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/m.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/n.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/o.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/p.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/r21.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/bp.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/CP.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/888.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/narnia1.patch
+https://raw.githubusercontent.com/bn0785ac/in-dev/master/meme.patch
 )
 
 
-sha256sums=('6abe5b8ea147953c9d8bae72e52b4984f1a0f718e97bc578f0250055815ec4cd'
+sha256sums=('1d54669f1ff0ea37d1095e8934d307f1dc5e93119f1ea621ee93ca8d032ff64e'
             '4dc3428f2c927955d9ae117f2fb24d098cc6dd67adb760ac9c82b522ec8b0587'
-            '1a3a33e34764205c7be280c7436730f5d899bdbc44339ec5df208e09fd102883'
+            'f636b4f57c85634a40f2bdf66bcd7080a730a088a791d8dbf54c7f8c14d6d6af'
             '6e9a345f810d36068ee74ebba4708c70ab30421dad3571b6be5e9db635078ea8'
             '35435e8dae76737baafecdc76d74a1c97281c4179e416556e033a06a31468e6d'
             'd81319f168dad0e411c8e810f73daa2f56ff579578771bd9c9bb1aa2d7c09a8b'
@@ -195,8 +197,8 @@ sha256sums=('6abe5b8ea147953c9d8bae72e52b4984f1a0f718e97bc578f0250055815ec4cd'
             'a5327677d62f34da26e7aa714d49e71f7ebfcdbcb16b37dd8fe34fdf0d92c438'
             'e660590ebc900879d059ea0b8f9cfbf66f45d0d43f04f1b11ce2d0daf781f265'
             '84d61c7ccc1e99dd593970bfff1cbc030b586cc90531541d17323e6b92f15230'
-            '35266f58367b808d6edb3f8810f7bdadfa2ebf961504169f2557912741397a24')
-
+            '35266f58367b808d6edb3f8810f7bdadfa2ebf961504169f2557912741397a24'
+            'e3cbf8c407974cee82541f0c2395059e90d513e050c05f23975465595c23f0c5')
 
 
 # Possible replacements are listed in build/linux/unbundle/replace_gn_files.py
@@ -279,6 +281,7 @@ patch -Np1 -i ../034.patch
 #patch -Np1 -i ../035.patch
 patch -Np1 -i ../360.patch
 patch -Np1 -i ../888.patch
+patch -Np1 -i ../meme.patch
 
 patch -Np1 -i ../037.patch
 patch -Np1 -i ../038.patch
@@ -344,6 +347,7 @@ patch -Np1 -i ../k1.patch
   # Fixes from Gentoo
 
   # Use Python 2
+msg2 'py2'
   find . -name '*.py' -exec sed -i -r 's|/usr/bin/python$|&2|g' {} +
 
   # There are still a lot of relative calls which need a workaround
@@ -443,28 +447,27 @@ package() {
 
   cd "$srcdir/$name-$pkgver"
 
-  install -D out/Release/chrome "$pkgdir/usr/lib/$pkgname/$pkgname"
+  install -D out/Release/chrome "$pkgdir/usr/lib/$pk/$pk"
   install -Dm644 "$srcdir/dnox.desktop" \
     "$pkgdir/usr/share/applications/dnox.desktop"
 
-  install -Dm4755 out/Release/chrome_sandbox \
-    "$pkgdir/usr/lib/dnox/chrome-sandbox"
+  install -Dm4755 out/Release/chrome_sandbox "$pkgdir/usr/lib/$pk/chrome-sandbox"
 
   cp -a \
     out/Release/{chrome_{100,200}_percent,resources}.pak \
     out/Release/{*.bin,chromedriver} \
     out/Release/locales \
-    "$pkgdir/usr/lib/dnox/"
+    "$pkgdir/usr/lib/$pk/"
 
   if [[ -z ${_system_libs[icu]+set} ]]; then
-    cp out/Release/icudtl.dat "$pkgdir/usr/lib/dnox/"
+    cp out/Release/icudtl.dat "$pkgdir/usr/lib/$pk/"
   fi
 
-  ln -s /usr/lib/$pkgname/dnoxdriver "$pkgdir/usr/bin/dnoxdriver"
+  ln -s /usr/lib/$pk/dnoxdriver "$pkgdir/usr/bin/dnoxdriver"
 
   for size in 16 22 24 32 48 64 128 256; do
     install -Dm644 "$srcdir/product_logo_$size.png" \
-      "$pkgdir/usr/share/icons/hicolor/${size}x${size}/apps/$pkgname.png"
+      "$pkgdir/usr/share/icons/hicolor/${size}x${size}/apps/$pk.png"
   done
 
 
