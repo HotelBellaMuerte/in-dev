@@ -1,11 +1,6 @@
 --- a/chrome/browser/ui/browser_ui_prefs.cc	2017-10-08 18:53:28.401765395 -0400
 +++ b/chrome/browser/ui/browser_ui_prefs.cc	2017-10-08 18:53:45.021709829 -0400
-@@ -62,11 +62,11 @@
-   registry->RegisterBooleanPref(prefs::kWebAppCreateInQuickLaunchBar, true);
-   registry->RegisterBooleanPref(
-       prefs::kEnableTranslate,
--      true,
-+      false,
+@@ -63,7 +63,7 @@
        user_prefs::PrefRegistrySyncable::SYNCABLE_PREF);
    registry->RegisterStringPref(prefs::kCloudPrintEmail, std::string());
    registry->RegisterBooleanPref(prefs::kCloudPrintProxyEnabled, true);
