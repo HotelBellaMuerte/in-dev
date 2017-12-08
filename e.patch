@@ -49,20 +49,6 @@
    void SendFileOpenReply(ppapi::host::ReplyMessageContext reply_context,
                           base::File::Error error_code);
  
---- a/content/common/BUILD.gn
-+++ b/content/common/BUILD.gn
-@@ -262,11 +262,6 @@ source_set("common") {
-     "presentation/presentation_struct_traits.cc",
-     "presentation/presentation_struct_traits.h",
-     "process_type.cc",
--    "quarantine/quarantine.cc",
--    "quarantine/quarantine_constants_linux.h",
--    "quarantine/quarantine_linux.cc",
--    "quarantine/quarantine_mac.mm",
--    "quarantine/quarantine_win.cc",
-     "quota_messages.h",
-     "render_process_messages.h",
-     "render_widget_surface_properties.cc",
 --- a/content/common/quarantine/quarantine.cc
 +++ b/content/common/quarantine/quarantine.cc
 @@ -6,8 +6,6 @@
