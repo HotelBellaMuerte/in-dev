@@ -16,49 +16,51 @@
  
 -#if !defined(OS_ANDROID)
 +
- // Controls if browser side DIAL device discovery is enabled.
- const base::Feature kEnableDialLocalDiscovery{
-     "EnableDialLocalDiscovery", base::FEATURE_DISABLED_BY_DEFAULT};
-@@ -30,9 +30,7 @@
+ // Controls if browser side Cast device discovery is enabled.
+ const base::Feature kEnableCastDiscovery{"EnableCastDiscovery",
+                                          base::FEATURE_DISABLED_BY_DEFAULT};
+@@ -26,9 +26,9 @@
  // Controls if local media casting is enabled.
  const base::Feature kEnableCastLocalMedia{"EnableCastLocalMedia",
                                            base::FEATURE_DISABLED_BY_DEFAULT};
 -#endif
  
 -#if defined(OS_ANDROID) || BUILDFLAG(ENABLE_EXTENSIONS)
++
++
  namespace {
  const PrefService::Preference* GetMediaRouterPref(
      content::BrowserContext* context) {
-@@ -40,10 +38,8 @@
+@@ -36,10 +36,10 @@
        prefs::kEnableMediaRouter);
  }
  }  // namespace
 -#endif  // defined(OS_ANDROID) || BUILDFLAG(ENABLE_EXTENSIONS)
++
  
  bool MediaRouterEnabled(content::BrowserContext* context) {
 -#if defined(OS_ANDROID) || BUILDFLAG(ENABLE_EXTENSIONS)
++
    const PrefService::Preference* pref = GetMediaRouterPref(context);
    // Only use the pref value if it set from a mandatory policy.
    if (pref->IsManaged() && !pref->IsDefaultValue()) {
-@@ -55,12 +51,9 @@
+@@ -51,12 +51,9 @@
    // The component extension cannot be loaded in guest sessions.
    // TODO(crbug.com/756243): Figure out why.
    return !Profile::FromBrowserContext(context)->IsGuestSession();
 -#else  // !(defined(OS_ANDROID) || BUILDFLAG(ENABLE_EXTENSIONS))
--  return false;
+   return false;
 -#endif  // defined(OS_ANDROID) || BUILDFLAG(ENABLE_EXTENSIONS)
  }
  
 -#if !defined(OS_ANDROID)
-+
- // Returns true if browser side DIAL discovery is enabled.
- bool DialLocalDiscoveryEnabled() {
-   return base::FeatureList::IsEnabled(kEnableDialLocalDiscovery);
-@@ -76,6 +69,6 @@
+ // Returns true if browser side Cast discovery is enabled.
+ bool CastDiscoveryEnabled() {
+   return base::FeatureList::IsEnabled(kEnableCastDiscovery);
+@@ -66,6 +63,5 @@
+ bool CastLocalMediaEnabled() {
    return base::FeatureList::IsEnabled(kEnableCastLocalMedia);
  }
- 
 -#endif
-+
  
  }  // namespace media_router
