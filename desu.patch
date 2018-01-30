@@ -23,7 +23,7 @@ diff --git a/base/threading/thread_restrictions.h b/base/threading/thread_restri
 index c8b422ba..bdb5dbd 100644
 --- a/base/threading/thread_restrictions.h
 +++ b/base/threading/thread_restrictions.h
-@@ -61,6 +61,9 @@
+@@ -62,6 +62,9 @@
  class BackendImpl;
  class InFlightIO;
  }
@@ -33,10 +33,10 @@ index c8b422ba..bdb5dbd 100644
  namespace gpu {
  class GpuChannelHost;
  }
-@@ -265,6 +268,7 @@
-   FRIEND_TEST_ALL_PREFIXES(ThreadRestrictionsTest,
+@@ -267,6 +270,7 @@
                             ScopedAllowBaseSyncPrimitivesWithBlockingDisallowed);
    friend class base::GetAppOutputScopedAllowBaseSyncPrimitives;
+   friend class content::SessionStorageDatabase;
 +  friend class functions::GnExecScriptScopedAllowBaseSyncPrimitives;
    friend class leveldb::LevelDBMojoProxy;
    friend class media::BlockingUrlProtocol;
