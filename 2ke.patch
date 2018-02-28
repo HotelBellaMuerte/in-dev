@@ -9,7 +9,7 @@
  
  const base::Feature kAppendRecentNavigationEvents{
      "AppendRecentNavigationEvents", base::FEATURE_DISABLED_BY_DEFAULT};
-@@ -73,11 +73,11 @@
+@@ -76,12 +76,12 @@
  } kExperimentalFeatures[]{
      {&kAdSamplerCollectButDontSendFeature, false},
      {&kAdSamplerTriggerFeature, false},
@@ -20,8 +20,10 @@
      {&kDispatchSafetyNetCheckOffThread, false},
 -    {&kGaiaPasswordReuseReporting, true},
 -    {&kGoogleBrandedPhishingWarning, true},
+-    {&kInspectDownloadedRarFiles, true},
 +    {&kGaiaPasswordReuseReporting, false},
 +    {&kGoogleBrandedPhishingWarning, false},
++    {&kInspectDownloadedRarFiles, false},
      {&kThreatDomDetailsTagAndAttributeFeature, false},
      {&kTriggerThrottlerDailyQuotaFeature, false},
  };
