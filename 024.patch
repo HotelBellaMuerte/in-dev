@@ -1,21 +1,47 @@
---- a/chrome/browser/search/search.cc	2017-10-04 18:07:35.000000000 -0400
-+++ b/chrome/browser/search/search.cc	2017-10-08 19:22:39.902499353 -0400
-@@ -217,17 +217,7 @@
-       return NewTabURLDetails(local_url, NEW_TAB_URL_VALID);
+From ca8da0d2ace2ea97c18ccac8e265421e10d0fe67 Mon Sep 17 00:00:00 2001
+From: Tom Anderson <thomasanderson@chromium.org>
+Date: Thu, 26 Apr 2018 11:38:05 -0700
+Subject: [PATCH] Fix gn bootstrap
+
+BUG=837312
+R=dpranke
+
+Change-Id: Ia5c57f596388a4ba325208c638fac558984202f0
+---
+
+diff --git a/tools/gn/bootstrap/bootstrap.py b/tools/gn/bootstrap/bootstrap.py
+index 7fa9f04..ebc3237 100755
+--- a/tools/gn/bootstrap/bootstrap.py
++++ b/tools/gn/bootstrap/bootstrap.py
+@@ -525,8 +525,11 @@
+       'base/location.cc',
+       'base/logging.cc',
+       'base/md5.cc',
++      'base/memory/platform_shared_memory_region.cc',
++      'base/memory/read_only_shared_memory_region.cc',
+       'base/memory/ref_counted.cc',
+       'base/memory/ref_counted_memory.cc',
++      'base/memory/shared_memory_mapping.cc',
+       'base/memory/shared_memory_handle.cc',
+       'base/memory/shared_memory_tracker.cc',
+       'base/memory/weak_ptr.cc',
+@@ -663,6 +666,19 @@
+       'base/vlog.cc',
+   ])
  
-     NewTabURLState state = IsValidNewTabURL(profile, search_provider_url);
--    switch (state) {
--      case NEW_TAB_URL_VALID:
--        // We can use the search provider's page.
--        return NewTabURLDetails(search_provider_url, state);
--      case NEW_TAB_URL_INCOGNITO:
--        // Incognito has its own New Tab.
--        return NewTabURLDetails(GURL(), state);
--      default:
--        // Use the local New Tab otherwise.
--        return NewTabURLDetails(local_url, state);
--    }
-+    return NewTabURLDetails(local_url, state);
-   }
- 
-   GURL url;
++  if is_win:
++    static_libraries['base']['sources'].extend([
++        'base/memory/platform_shared_memory_region_win.cc'
++    ])
++  elif is_mac:
++    static_libraries['base']['sources'].extend([
++        'base/memory/platform_shared_memory_region_mac.cc'
++    ])
++  elif is_posix:
++    static_libraries['base']['sources'].extend([
++        'base/memory/platform_shared_memory_region_posix.cc'
++    ])
++
+   if is_posix:
+     static_libraries['base']['sources'].extend([
+         'base/base_paths_posix.cc',
