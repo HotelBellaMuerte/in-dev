@@ -654,3 +654,14 @@ diff --git a/third_party/blink/renderer/platform/graphics/image_data_buffer.h b/
 -- 
 2.7.4
 
+--- a/third_party/skia/src/core/SkColorData.h	2018-06-18 06:17:42.000000000 -0400
++++ b/third_party/skia/src/core/SkColorData.h.new	2018-06-22 23:24:44.710588063 -0400
+@@ -15,7 +15,7 @@
+ 
+ #include "SkColor.h"
+ #include "SkColorPriv.h"
+-#include "SkTo.h"
++#include "../../include/private/SkTo.h"
+ 
+ //////////////////////////////////////////////////////////////////////////////
+ 
