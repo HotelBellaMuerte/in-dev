@@ -269,15 +269,26 @@ diff --git a/third_party/blink/renderer/modules/webaudio/audio_buffer.idl b/thir
 diff --git a/third_party/blink/renderer/modules/webaudio/audio_context.cc b/third_party/blink/renderer/modules/webaudio/audio_context.cc
 --- a/third_party/blink/renderer/modules/webaudio/audio_context.cc
 +++ b/third_party/blink/renderer/modules/webaudio/audio_context.cc
-@@ -261,7 +261,7 @@ void AudioContext::StopRendering() {
+@@ -312,18 +312,7 @@
  }
  
  double AudioContext::baseLatency() const {
--  return FramesPerBuffer() / static_cast<double>(sampleRate());
+-  DCHECK(IsMainThread());
+-  DCHECK(destination());
+-
+-  // TODO(hongchan): Due to the incompatible constructor between
+-  // AudioDestinationNode and DefaultAudioDestinationNode, casting directly from
+-  // |destination()| is impossible. This is a temporary workaround until the
+-  // refactoring is completed.
+-  DefaultAudioDestinationHandler& destination_handler =
+-      static_cast<DefaultAudioDestinationHandler&>(
+-          destination()->GetAudioDestinationHandler());
+-  return destination_handler.GetFramesPerBuffer() /
+-         static_cast<double>(sampleRate());
 +  return 0.04;
  }
  
- }  // namespace blink
+ void AudioContext::NotifySourceNodeStart() {
 -- 
 2.7.4
 
