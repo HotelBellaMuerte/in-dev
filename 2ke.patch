@@ -2,19 +2,19 @@
 06:05:36.000000000 -0400
 +++ b/components/safe_browsing/features.cc.new	2018-05-08 
 14:32:50.539706732 -0400
-@@ -36,7 +36,7 @@
-     "ThreatDomDetailsTagAttributes", base::FEATURE_DISABLED_BY_DEFAULT};
+@@ -50,7 +50,7 @@
+     "InspectDownloadedRarFiles", base::FEATURE_DISABLED_BY_DEFAULT};
  
- const base::Feature kSuspiciousSiteTriggerQuotaFeature{
--    "SafeBrowsingSuspiciousSiteTriggerQuota", base::FEATURE_ENABLED_BY_DEFAULT};
-+    "SafeBrowsingSuspiciousSiteTriggerQuota", base::FEATURE_DISABLED_BY_DEFAULT};
+ const base::Feature kEnterprisePasswordProtectionV1{
+-    "EnterprisePasswordProtectionV1", base::FEATURE_ENABLED_BY_DEFAULT};
++    "EnterprisePasswordProtectionV1", base::FEATURE_DISABLED_BY_DEFAULT};
  
- const base::Feature kTriggerThrottlerDailyQuotaFeature{
-     "SafeBrowsingTriggerThrottlerDailyQuota",
-@@ -61,10 +61,10 @@
-   bool probabilistically_enabled;
+ const base::Feature kForceEnableResetPasswordWebUI{
+     "ForceEnableResetPasswordWebUI", base::FEATURE_DISABLED_BY_DEFAULT};
+@@ -66,10 +66,10 @@
  } kExperimentalFeatures[]{
      {&kAdSamplerTriggerFeature, false},
+     {&kBillingInterstitial, false},
 -    {&kCheckByURLLoaderThrottle, true},
 -    {&kForceEnableResetPasswordWebUI, true},
 -    {&kInspectDownloadedRarFiles, true},
