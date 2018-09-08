@@ -1,35 +1,13 @@
---- a/extensions/browser/verified_contents.h	2018-07-26 06:08:05.000000000 -0400
-+++ b/extensions/browser/verified_contents.h.new	2018-07-26 20:24:37.490821538 -0400
-@@ -6,6 +6,8 @@
- #define EXTENSIONS_BROWSER_VERIFIED_CONTENTS_H_
- 
- #include <stdint.h>
-+#include <memory>
-+
- 
- #include <map>
- #include <string>
-
---- a/chrome/browser/ui/views/message_center/popups_only_ui_delegate.cc	2018-08-04 19:58:10.163670765 -0400
-+++ b/chrome/browser/ui/views/message_center/popups_only_ui_delegate.cc.new	2018-08-04 19:59:21.884078427 -0400
-@@ -3,6 +3,8 @@
+--- a/pdf/pdfium/pdfium_mem_buffer_file_write.cc	2018-08-27 
+06:09:45.000000000 -0400
++++ b/pdf/pdfium/pdfium_mem_buffer_file_write.cc.new	2018-08-27 
+20:55:22.415727873 -0400
+@@ -2,6 +2,8 @@
+ // Use of this source code is governed by a BSD-style license that can be
  // found in the LICENSE file.
  
- #include "chrome/browser/ui/views/message_center/popups_only_ui_delegate.h"
-+#include <memory>
++#include <cstdint>
 +
+ #include "pdf/pdfium/pdfium_mem_buffer_file_write.h"
  
- #include "ui/display/screen.h"
- #include "ui/message_center/message_center.h"
-
---- a/ui/message_center/views/message_popup_collection.h	2018-08-08 21:56:47.000000000 -0400
-+++ b/ui/message_center/views/message_popup_collection.h.new	2018-08-10 20:32:13.102948490 -0400
-@@ -5,6 +5,8 @@
- #ifndef UI_MESSAGE_CENTER_VIEWS_MESSAGE_POPUP_COLLECTION_H_
- #define UI_MESSAGE_CENTER_VIEWS_MESSAGE_POPUP_COLLECTION_H_
- 
-+#include <memory>
-+
- #include "ui/gfx/animation/animation_delegate.h"
- #include "ui/gfx/geometry/rect.h"
- #include "ui/message_center/message_center_export.h"
+ namespace chrome_pdf {
