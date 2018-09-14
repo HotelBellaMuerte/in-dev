@@ -1,0 +1,88 @@
+--- a/chrome/browser/media/router/media_router_feature.cc	
+2018-05-20 13:30:39.941668362 -0400
++++ b/chrome/browser/media/router/media_router_feature.cc.new	
+2018-05-20 13:33:31.976474960 -0400
+@@ -16,21 +16,16 @@
+ #include "services/network/public/cpp/features.h"
+ #include "ui/base/ui_features.h"
+ 
+-#if defined(OS_ANDROID) || BUILDFLAG(ENABLE_EXTENSIONS)
+ #include "chrome/common/chrome_features.h"
+ #include "chrome/common/pref_names.h"
+ #include "components/prefs/pref_service.h"
+ #include "components/user_prefs/user_prefs.h"
+ #include "ui/base/ui_base_features.h"
+-#endif  // defined(OS_ANDROID) || BUILDFLAG(ENABLE_EXTENSIONS)
+ 
+-#if !defined(OS_ANDROID)
+ #include "components/prefs/pref_registry_simple.h"
+-#endif
+ 
+ namespace media_router {
+ 
+-#if !defined(OS_ANDROID)
+ // Controls if browser side DialMediaRouteProvider is enabled.
+ const base::Feature kDialMediaRouteProvider{"DialMediaRouteProvider",
+                                             base::FEATURE_DISABLED_BY_DEFAULT};
+@@ -42,9 +37,7 @@
+ const base::Feature kCastMediaRouteProvider{"CastMediaRouteProvider",
+                                             base::FEATURE_DISABLED_BY_DEFAULT};
+ 
+-#endif
+ 
+-#if defined(OS_ANDROID) || BUILDFLAG(ENABLE_EXTENSIONS)
+ namespace {
+ const PrefService::Preference* GetMediaRouterPref(
+     content::BrowserContext* context) {
+@@ -52,10 +45,8 @@
+       ::prefs::kEnableMediaRouter);
+ }
+ }  // namespace
+-#endif  // defined(OS_ANDROID) || BUILDFLAG(ENABLE_EXTENSIONS)
+ 
+ bool MediaRouterEnabled(content::BrowserContext* context) {
+-#if defined(OS_ANDROID) || BUILDFLAG(ENABLE_EXTENSIONS)
+   const PrefService::Preference* pref = GetMediaRouterPref(context);
+   // Only use the pref value if it set from a mandatory policy.
+   if (pref->IsManaged() && !pref->IsDefaultValue()) {
+@@ -66,13 +57,9 @@
+ 
+   // The component extension cannot be loaded in guest sessions.
+   // TODO(crbug.com/756243): Figure out why.
+-  return !Profile::FromBrowserContext(context)->IsGuestSession();
+-#else  // !(defined(OS_ANDROID) || BUILDFLAG(ENABLE_EXTENSIONS))
+   return false;
+-#endif  // defined(OS_ANDROID) || BUILDFLAG(ENABLE_EXTENSIONS)
+ }
+ 
+-#if !defined(OS_ANDROID)
+ void RegisterLocalStatePrefs(PrefRegistrySimple* registry) {
+   registry->RegisterBooleanPref(prefs::kMediaRouterCastAllowAllIPs, false,
+                                 PrefRegistry::PUBLIC);
+@@ -135,19 +122,8 @@
+ }
+ 
+ bool ShouldUseViewsDialog() {
+-#if defined(OS_MACOSX)
+-#if BUILDFLAG(MAC_VIEWS_BROWSER)
+-  // Cocoa browser is disabled if kExperimentalUi is enabled.
+-  return (base::FeatureList::IsEnabled(features::kViewsCastDialog) &&
+-          !features::IsViewsBrowserCocoa()) ||
+-         base::FeatureList::IsEnabled(features::kExperimentalUi);
+-#else   // !BUILDFLAG(MAC_VIEWS_BROWSER)
+-  return false;
+-#endif  // BUILDFLAG(MAC_VIEWS_BROWSER)
+-#else   // !defined(OS_MACOSX)
+   return base::FeatureList::IsEnabled(features::kViewsCastDialog) ||
+          base::FeatureList::IsEnabled(features::kExperimentalUi);
+-#endif  // defined(OS_MACOSX)
+ }
+ 
+ bool ShouldUseMirroringService() {
+@@ -157,6 +133,5 @@
+          base::FeatureList::IsEnabled(network::features::kNetworkService);
+ }
+ 
+-#endif  // !defined(OS_ANDROID)
+ 
+ }  // namespace media_router

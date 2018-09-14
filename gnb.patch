@@ -1,0 +1,11 @@
+--- a/chrome/browser/policy/cloud/machine_level_user_cloud_policy_helper.cc	2018-04-03 03:04:47.000000000 -0400
++++ b/chrome/browser/policy/cloud/machine_level_user_cloud_policy_helper.cc.new	2018-04-03 12:33:30.099778839 -0400
+@@ -6,6 +6,8 @@
+ 
+ #include <utility>
+ 
++#include <limits.h>
++
+ #include "base/bind.h"
+ #include "base/callback.h"
+ #include "base/logging.h"
